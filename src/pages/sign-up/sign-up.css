@@ -1,0 +1,23 @@
+.Bg{
+    background-image: url('../../../src/assets/images/bg2.jpeg');
+    background-position: center;
+    background-size: contain;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.signup--wrapper{
+    max-width: 600px;
+    position:absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to bottom, rgba(20,50,93,.9) , rgba(8,22,48,.9));
+    padding: 20px;
+}
+
+.signup--wrapper .row {
+    margin: 20px;
+}
+
