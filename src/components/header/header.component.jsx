@@ -41,11 +41,6 @@ export default function Header() {
                   Đăng ký
             </Typography>
           </NavLink>
-          <NavLink to="/sign-in">
-            <Typography variant="h6" >
-                  Đăng nhập
-            </Typography>
-          </NavLink>
         </Toolbar>
       </AppBar>
     </div>
