@@ -1,4 +1,4 @@
-.Bg {
+.Bg-signin {
     background-image: url('../../../src/assets/images/bg2.jpeg');
     background-position: center;
     background-size: contain;
@@ -6,7 +6,7 @@
     height: 100vh;
 }
 
-.signup--wrapper {
+.signin--wrapper {
     max-width: 600px;
     position: absolute;
     text-align: center;
@@ -17,7 +17,7 @@
     margin-top: 50px;
 }
 
-.signup--wrapper .row {
+.signin--wrapper .row {
     margin: 20px;
     width: 400px;
 }

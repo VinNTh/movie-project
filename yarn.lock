@@ -6869,6 +6869,11 @@ jest@26.6.0:
     import-local "^3.0.2"
     jest-cli "^26.6.0"
 
+jquery@>=1.7.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -11396,6 +11401,13 @@ vendors@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
+
+venobox@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/venobox/-/venobox-1.9.3.tgz#1125e8193c3af569902250455a0d6643b9689b4a"
+  integrity sha512-+J1WkS4zBe6vZ/5EQU5b/vySMsM1yzvJZ4fbsi6BE5QVV3fzSUoxGIwOW+yD7Yw6igKAtZNR+1A8hvIalNbQeQ==
+  dependencies:
+    jquery ">=1.7.0"
 
 verror@1.10.0:
   version "1.10.0"

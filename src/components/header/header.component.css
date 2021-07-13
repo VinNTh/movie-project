@@ -1,0 +1,27 @@
+.sign {
+    color: #9b9b9b;
+    font-size: 15px !important;
+}
+
+.signIn {
+    padding-right: 5px !important;
+    border-right: 1px solid #9b9b9b;
+}
+
+.signUp {
+    padding-left: 5px;
+}
+
+.itemCenter p {
+    display: inline-block;
+}
+
+.itemCenter p a {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.itemCenter p a:hover {
+    color: #fb4226;
+}

@@ -6,6 +6,7 @@ import  axios  from "axios";
 import { connect } from "react-redux";
 import { getMovieListAction } from "../../store/actions/movie.action";
 import MovieCard from "../../components/movie-card/movie-card.component";
+import Carousel from "../../components/carousel/carousel.component";
 
 
 class Home extends Component {
@@ -26,11 +27,12 @@ class Home extends Component {
         {/* <Button variant="contained" color="primary">
           Primary
         </Button>
-        <Button className={classes.myBtn}>Created button with myself</Button> */}
+        <Button className={classes.myBtn}>Created button with myself</Button> */}<Carousel/>
         <Container maxWidth={"lg"}>
-            <Grid container>
+            {/* <Grid container>
                 {this.renderMovieList()}
-            </Grid>
+            </Grid> */}
+            
         </Container>
       </div>
     );

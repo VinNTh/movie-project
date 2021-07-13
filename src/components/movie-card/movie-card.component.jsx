@@ -41,12 +41,12 @@ export default function MovieCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={()=>{
+        <Button size="small" color="secondary" onClick={()=>{
             history.push(`/movie-detail/${movie.maPhim}`)
         }}>
           Movie detail
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="secondary">
           Learn More
         </Button>
       </CardActions>

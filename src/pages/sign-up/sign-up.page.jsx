@@ -20,7 +20,7 @@ function SignUp() {
     const dispatch = useDispatch();
     const [user,setUser] = useState({
         
-            taiKhoan:'',
+        taiKhoan:'',
         matKhau:'',
         hoTen:'',
         email:'',
@@ -31,34 +31,60 @@ function SignUp() {
         
     })
     const [userErrors,setUserErrors] = useState({
-        taiKhoan:'a',
+        error:{
+        taiKhoan:'',
         matKhau:'',
         hoTen:'',
         email:'',
         soDienThoai:'',
         maNhom:''
+        },
+        valid: true,
+        
     })
     console.log(user)
     const handleChange = (e) => {
         const {value,name} = e.target;
-        let errorMessage = {...userErrors};
-        console.log(errorMessage)
-        if(value.trim() === ""){
-            errorMessage[name] = name + " không được bỏ trống" 
+        let newError = {...userErrors.error};
+        let newValid = {...userErrors.valid};
+        console.log(newError)
+        
+        //Kiểm tra hoTen
+        if(name === 'hoTen'){
+            if(/[A-Za-z]{3}/){
+                newValid = false;
+            }
         }
-        // let newUserErrors = {...userErrors,[name]:errorMessage};
+        //Kiểm tra email
+        if(name === 'email'){
+            
+            if(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/){
+                return newValid = false;
+            }else{
+                return newError[name] = name + ' email không đúng'
+            }
+        }
+        //Kiểm tra rổng
+        if(value.trim() === ''){
+            newError[name] = name + ' không được bỏ trống';
+            newValid = true;
+        }else{
+            newError[name] = '';
+        }
+        // let newUserErrors = {...userErrors.error,[name]:errorMessage};
         setUser({
             ...user,
             [name]:value,
         })
         setUserErrors({
-            userErrors: errorMessage,
+            error: newError,
+            valid: newValid,
         })
     }
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(user);
-        // dispatch(signUpAction(user,history))
+        dispatch(signUpAction(user,history))
     }
     return (
         <div className="Bg">
@@ -69,31 +95,53 @@ function SignUp() {
                     <div className="row">
                         <label className="col-xl-4">Tài khoản</label>
                         <input name="taiKhoan" className="col-xl-8" type="text" onChange={handleChange}/>
-                        <p style={{margin:0}} className="text-center text-warning col-xl-12">
-                            {userErrors.taiKhoan}
-                        </p>
+                        <div className="col-xl-12" style={{display:'flex', flexWrap:'wrap',width:'100%',height:'10px'}}>
+                            <span style={{flex:'0 0 40%'}}></span>
+                            <span style={{margin:0, flexBasis:'60%',}} className="text-warning">
+                            {userErrors.error.taiKhoan}
+                        </span>
+                        </div>
+                        
                     </div>
                     <div className="row">
                         <label className="col-xl-4">Mật khẩu</label>
                         <input name="matKhau" className="col-xl-8" type="text" onChange={handleChange}/>
-                        <p className="text-warning">
-                            {userErrors.matKhau}
-                        </p>
+                        <div className="col-xl-12" style={{display:'flex', flexWrap:'wrap',width:'100%',height:'10px'}}>
+                            <span style={{flex:'0 0 40%'}}></span>
+                            <span style={{margin:0, flexBasis:'60%',}} className="text-warning">
+                            {userErrors.error.matKhau}
+                        </span>
+                        </div>
                     </div>
                     <div className="row">
                         <label className="col-xl-4">Họ tên</label>
-                        <input name="hoTen" className="col-xl-8" type="text" onChange={handleChange}/>
-                        <p className="text-warning">
-                            {userErrors.hoTen}
-                        </p>
+                        <input pattern="[A-Za-z]{3}" name="hoTen" className="col-xl-8" type="text" onChange={handleChange}/>
+                        <div className="col-xl-12" style={{display:'flex', flexWrap:'wrap',width:'100%',height:'10px'}}>
+                            <span style={{flex:'0 0 40%'}}></span>
+                            <span style={{margin:0, flexBasis:'60%',}} className="text-warning">
+                            {userErrors.error.hoTen}
+                        </span>
+                        </div>
                     </div>
                     <div className="row">
                         <label className="col-xl-4">Email</label>
-                        <input name="email" className="col-xl-8" type="email" onChange={handleChange}/>
+                        <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" className="col-xl-8" type="email" onChange={handleChange}/>
+                        <div className="col-xl-12" style={{display:'flex', flexWrap:'wrap',width:'100%',height:'10px'}}>
+                            <span style={{flex:'0 0 40%'}}></span>
+                            <span style={{margin:0, flexBasis:'60%',}} className="text-warning">
+                            {userErrors.error.email}
+                        </span>
+                        </div>
                     </div>
                     <div className="row">
                         <label className="col-xl-4">Số điện thoại</label>
                         <input name="soDienThoai" className="col-xl-8" type="text" onChange={handleChange}/>
+                        <div className="col-xl-12" style={{display:'flex', flexWrap:'wrap',width:'100%',height:'10px'}}>
+                            <span style={{flex:'0 0 32%'}}></span>
+                            <span style={{margin:0, flexBasis:'68%',}} className="text-warning">
+                            {userErrors.error.soDienThoai}
+                        </span>
+                        </div>
                     </div>
                     <div className="row">
                         <label className="col-xl-4">Mã nhóm</label>
@@ -111,7 +159,7 @@ function SignUp() {
                         </select>
                     </div>
                     <div className="text-center">
-                        <button type="submit" className="btn btn-success">Đăng ký</button>
+                        <button disabled={userErrors.valid} type="submit" className="btn btn-success">Đăng ký</button>
                     </div>
                 </form>
             </div>
